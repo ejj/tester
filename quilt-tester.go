@@ -14,11 +14,11 @@ import (
 
 	"github.com/Sirupsen/logrus"
 
-	"github.com/quilt/quilt/api"
-	"github.com/quilt/quilt/api/client/getter"
-	apiUtil "github.com/quilt/quilt/api/util"
-	"github.com/quilt/quilt/stitch"
-	"github.com/quilt/quilt/util"
+	"github.com/kelda/kelda/api"
+	"github.com/kelda/kelda/api/client/getter"
+	apiUtil "github.com/kelda/kelda/api/util"
+	"github.com/kelda/kelda/stitch"
+	"github.com/kelda/kelda/util"
 )
 
 var (

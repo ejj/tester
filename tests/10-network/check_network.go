@@ -11,11 +11,11 @@ import (
 
 	log "github.com/Sirupsen/logrus"
 
-	"github.com/quilt/quilt/api"
-	"github.com/quilt/quilt/api/client"
-	"github.com/quilt/quilt/api/client/getter"
-	"github.com/quilt/quilt/db"
-	"github.com/quilt/quilt/join"
+	"github.com/kelda/kelda/api"
+	"github.com/kelda/kelda/api/client"
+	"github.com/kelda/kelda/api/client/getter"
+	"github.com/kelda/kelda/db"
+	"github.com/kelda/kelda/join"
 )
 
 // anyIPAllowed is used to indicate that any non-error response is okay for an external

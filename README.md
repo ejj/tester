@@ -1,7 +1,7 @@
 # Quilt CI
 
-This repository contains a Quilt spec for a Jenkins deployment that tests
-[Quilt](github.com/quilt/quilt).
+This repository contains a Kelda spec for a Jenkins deployment that tests
+[Kelda](github.com/Kelda/Kelda).
 
 It also contains a custom Docker image because we require some build tools and
 Jenkins plugins for our testing job.

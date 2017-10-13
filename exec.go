@@ -13,10 +13,10 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ec2"
 
-	"github.com/quilt/quilt/api"
-	"github.com/quilt/quilt/api/client"
-	"github.com/quilt/quilt/db"
-	"github.com/quilt/quilt/util"
+	"github.com/kelda/kelda/api"
+	"github.com/kelda/kelda/api/client"
+	"github.com/kelda/kelda/db"
+	"github.com/kelda/kelda/util"
 )
 
 // runSpecUntilConnected runs the given spec, and blocks until either all

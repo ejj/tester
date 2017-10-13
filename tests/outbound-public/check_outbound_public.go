@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os/exec"
 
-	"github.com/quilt/quilt/api"
-	"github.com/quilt/quilt/api/client/getter"
-	"github.com/quilt/quilt/db"
-	"github.com/quilt/quilt/stitch"
+	"github.com/kelda/kelda/api"
+	"github.com/kelda/kelda/api/client/getter"
+	"github.com/kelda/kelda/db"
+	"github.com/kelda/kelda/stitch"
 
 	log "github.com/Sirupsen/logrus"
 )

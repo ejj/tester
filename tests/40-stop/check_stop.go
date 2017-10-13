@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/quilt/quilt/api"
-	"github.com/quilt/quilt/api/client/getter"
-	"github.com/quilt/quilt/minion/supervisor/images"
+	"github.com/kelda/kelda/api"
+	"github.com/kelda/kelda/api/client/getter"
+	"github.com/kelda/kelda/minion/supervisor/images"
 
 	log "github.com/Sirupsen/logrus"
 )

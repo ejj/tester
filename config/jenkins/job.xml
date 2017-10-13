@@ -8,7 +8,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/quilt/quilt</url>
+        <url>https://github.com/kelda/kelda</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -20,7 +20,7 @@
     <submoduleCfg class="list"/>
     <extensions>
       <hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
-        <relativeTargetDir>gohome/src/github.com/quilt/quilt</relativeTargetDir>
+        <relativeTargetDir>gohome/src/github.com/kelda/kelda</relativeTargetDir>
       </hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
     </extensions>
   </scm>
@@ -39,10 +39,10 @@
       <command>export GOPATH=${WORKSPACE}/gohome
 export PATH=${GOPATH}/bin:${PATH}
 
-go install -v github.com/quilt/quilt
-go get -v github.com/quilt/tester
+go install -v github.com/kelda/kelda
+go get -v github.com/kelda/tester
 
-cd $GOPATH/src/github.com/quilt/tester
+cd $GOPATH/src/github.com/kelda/tester
 make tests
 tester --preserve-failed -testRoot=./tests -junitOut=${WORKSPACE}/report.xml</command>
     </hudson.tasks.Shell>

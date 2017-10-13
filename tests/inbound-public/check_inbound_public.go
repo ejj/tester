@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/quilt/quilt/api"
-	"github.com/quilt/quilt/api/client/getter"
-	"github.com/quilt/quilt/db"
+	"github.com/kelda/kelda/api"
+	"github.com/kelda/kelda/api/client/getter"
+	"github.com/kelda/kelda/db"
 
 	log "github.com/Sirupsen/logrus"
 )
