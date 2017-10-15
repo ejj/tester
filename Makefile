@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-REPO = quilt
+REPO = keldaio
 
 docker-build:
 	docker build -t ${REPO}/tester .

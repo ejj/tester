@@ -1,7 +1,7 @@
-# Quilt CI
+# Kelda CI
 
-This repository contains a Quilt blueprint for a Jenkins deployment that tests
-[Quilt](github.com/quilt/quilt).
+This repository contains a Kelda blueprint for a Jenkins deployment that tests
+[Kelda](github.com/kelda/kelda).
 
 It also contains a custom Docker image because we require some build tools and
 Jenkins plugins for our testing job.

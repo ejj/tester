@@ -5,15 +5,15 @@ node_js:
 
 install:
     - npm install .
-    - curl -sL -o ./quilt https://github.com/quilt/quilt/releases/download/dev/quilt_linux
-        && chmod +x ./quilt
+    - curl -sL -o ./kelda https://github.com/kelda/kelda/releases/download/dev/kelda_linux
+        && chmod +x ./kelda
 
 before_script:
     - npm install -g gulp-cli
 
 script:
     - gulp lint
-    - ./quilt inspect ./testerRunnerExample.js graphviz
+    - ./kelda inspect ./testerRunnerExample.js graphviz
 
 notifications:
     slack:

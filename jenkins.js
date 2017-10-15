@@ -53,7 +53,7 @@ function setupFiles(opts, scp) {
 
   files.push(new File('.digitalocean/key', opts.digitalOceanKey));
 
-  const gceConfig = new File('.gce/quilt.json',
+  const gceConfig = new File('.gce/kelda.json',
     applyTemplate(readRel('config/gce.json.tmpl'),
       { gceProjectID: opts.gceProjectID,
         gcePrivateKey: opts.gcePrivateKey,
@@ -75,20 +75,20 @@ function setupFiles(opts, scp) {
   files.push(nodeConfig);
 
   const knownHostsPath = '~/jobs/integration-tester/known_hosts';
-  const quiltTesterConfig = new File('jobs/integration-tester/config.xml',
+  const keldaTesterConfig = new File('jobs/integration-tester/config.xml',
     applyTemplate(readRel('config/jenkins/integration-tester.xml'),
       { slackTeam: opts.slackTeam,
         slackToken: opts.slackToken,
         slackChannel: opts.slackChannel,
-        // The ${QUILT_VERSION} string is not meant to be evaluated in the Javascript.
+        // The ${KELDA_VERSION} string is not meant to be evaluated in the Javascript.
         // It should get expanded by Jenkins when the build runs.
         // eslint-disable-next-line no-template-curly-in-string
-        copyCommand: scp.getCommand('${QUILT_VERSION}.tar.gz', 'release.tar.gz', {
+        copyCommand: scp.getCommand('${KELDA_VERSION}.tar.gz', 'release.tar.gz', {
           identityFile: releaserKeyPath,
           knownHostsFile: knownHostsPath,
         }),
       }));
-  files.push(quiltTesterConfig);
+  files.push(keldaTesterConfig);
   files.push(new File(trimPrefix(releaserKeyPath, '~/'), scp.userKeyPair.priv));
   files.push(new File(trimPrefix(knownHostsPath, '~/'),
     `${scp.getHostname()} ${scp.hostKeyPair.pub}`));
@@ -125,7 +125,7 @@ exports.New = function New(opts, scp) {
     'testingNamespace',
     'slackTeam', 'slackChannel', 'slackToken']);
 
-  const jenkins = new Container('jenkins', 'quilt/tester', {
+  const jenkins = new Container('jenkins', 'keldaio/tester', {
     command: ['/bin/bash', '-c',
       `cp -r ${jenkinsStagingDir}. /var/jenkins_home;` +
       `chmod 0600 ${releaserKeyPath};` +
@@ -145,14 +145,14 @@ exports.New = function New(opts, scp) {
   jenkins.allowFrom(publicInternet, 8080);
 
   // The tests talk to the deployed machines on various ports. We allow them here.
-  publicInternet.allowFrom(jenkins, 22); // Required by `quilt ssh`.
+  publicInternet.allowFrom(jenkins, 22); // Required by `kelda ssh`.
   publicInternet.allowFrom(jenkins, 80); // Required by network tests.
   publicInternet.allowFrom(jenkins, 443); // Required by network tests.
   publicInternet.allowFrom(jenkins, 3000); // Required by the lobsters test.
   publicInternet.allowFrom(jenkins, 8000); // Required by network tests.
   publicInternet.allowFrom(jenkins, 9200); // Required by the elasticsearch test.
-  publicInternet.allowFrom(jenkins, 9000); // Required by the Quilt daemon for API communication.
-  publicInternet.allowFrom(jenkins, 9999); // Required by the Quilt daemon for minion communcation.
+  publicInternet.allowFrom(jenkins, 9000); // Required by the Kelda daemon for API communication.
+  publicInternet.allowFrom(jenkins, 9999); // Required by the Kelda daemon for minion communcation.
 
   // Allow outbound connections to Git servers. Required by `npm install`.
   publicInternet.allowFrom(jenkins, 9418);

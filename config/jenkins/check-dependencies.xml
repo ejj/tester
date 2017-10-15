@@ -21,9 +21,9 @@
 export GOPATH=${WORKSPACE}/gohome
 export PATH=${GOPATH}/bin:${WORKSPACE}/bin:${PATH}
 
-srcPath=$GOPATH/src/github.com/quilt/quilt
+srcPath=$GOPATH/src/github.com/kelda/kelda
 mkdir -p ${srcPath}
-git clone https://github.com/quilt/quilt.git ${srcPath}
+git clone https://github.com/kelda/kelda.git ${srcPath}
 
 cd ${srcPath}
 make get-build-tools
